@@ -1,8 +1,12 @@
 [phases.setup]
-nixPkgs = ["python312", "python312Packages.pip"]
+nixPkgs = ["python312"]
 
 [phases.install]
-cmds = ["python -m pip install -r requirements-deploy.txt"]
+cmds = [
+  "python -m venv /opt/venv",
+  "/opt/venv/bin/python -m ensurepip --upgrade",
+  "/opt/venv/bin/python -m pip install -r requirements-deploy.txt",
+]
 
 [start]
-cmd = "python my_bot.py"
+cmd = "/opt/venv/bin/python my_bot.py"

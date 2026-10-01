@@ -1,8 +1,7 @@
 [build]
 builder = "NIXPACKS"
-buildCommand = "pip install -r requirements-deploy.txt"
 
 [deploy]
-startCommand = "python my_bot.py"
+startCommand = "/opt/venv/bin/python my_bot.py"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
